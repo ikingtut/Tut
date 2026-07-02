@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: rd_user
+      POSTGRES_PASSWORD: rd_pass
+      POSTGRES_DB: remote_desktop
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+
+  backend:
+    build: ./backend-api
+    environment:
+      - DATABASE_URL=postgres://rd_user:rd_pass@postgres:5432/remote_desktop
+      - JWT_SECRET=supersecret
+      - SIGNALING_API_KEY=supersecret-signaling-key
+      - PORT=5000
+    ports:
+      - '5000:5000'
+    depends_on:
+      - postgres
+
+  signaling:
+    build: ./signaling-server
+    environment:
+      - PORT=4000
+      - SECRET_TOKEN=secret-token
+      - BACKEND_URL=http://backend:5000
+      - SIGNALING_API_KEY=supersecret-signaling-key
+    ports:
+      - '4000:4000'
+
+volumes:
+  db-data:
