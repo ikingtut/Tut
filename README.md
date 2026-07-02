@@ -1,6 +1,12 @@
 # Remote Desktop System
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 This workspace now contains a full-stacked remote desktop project package with authentication, device registration, and signaling for internet-based remote desktop control.
+
+## Published project
+
+This repository is published on GitHub at https://github.com/ikingtut/Tut.git.
 
 ## Included components
 
