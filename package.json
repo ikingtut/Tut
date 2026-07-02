@@ -1,0 +1,14 @@
+{
+  "name": "remote-access-internet-app",
+  "version": "1.0.0",
+  "description": "Remote access internet application with backend, signaling, relay, and mobile client components",
+  "private": false,
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ikingtut/Tut.git"
+  },
+  "scripts": {
+    "publish:package": "echo 'Package publishing is handled by GitHub release or your package registry'"
+  }
+}
